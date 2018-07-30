@@ -3,11 +3,6 @@ require 'active_support'
 module EasyRoles
   extend ActiveSupport::Concern
   
-  included do |base|
-    base.send :alias_method_chain, :method_missing, :roles
-    base.send :alias_method_chain, :respond_to?, :roles
-  end
-
   ALLOWED_METHODS = [:serialize, :bitmask]
   
   ALLOWED_METHODS.each do |method|
